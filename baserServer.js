@@ -48,6 +48,7 @@ const routes = {
   ping: routerHandlers.ping,
   hello: routerHandlers.hello,
   user: routerHandlers.user,
+  token: routerHandlers.token,
 };
 
 module.exports = baseServer;

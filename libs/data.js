@@ -101,6 +101,20 @@ class libraries {
   dataDirectory = () => {
     return path.join(__dirname, "../.data/");
   };
+
+  tokenVerifier = (tokenID, phone, callback) => {
+    this.readDataFile("tokens", tokenID, (error, tokenData) => {
+      if (tokenData) {
+        if (tokenData.id === tokenID && tokenData.expires > Date.now()) {
+          callback(true);
+        } else {
+          callback(false);
+        }
+      } else {
+        callback(false);
+      }
+    });
+  };
 }
 
 module.exports = libraries;

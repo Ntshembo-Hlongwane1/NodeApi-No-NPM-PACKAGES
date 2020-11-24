@@ -17,6 +17,19 @@ class Utils {
   BodyParser = (payload) => {
     return JSON.parse(payload);
   };
+  TokenGenerator = (length) => {
+    const possibleTokenChar =
+      "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStT123456789";
+    let token = "";
+    for (let i = 1; i < length; i++) {
+      let randomChar = possibleTokenChar.charAt(
+        Math.floor(Math.random() * possibleTokenChar.length - 1)
+      );
+      token += randomChar;
+    }
+
+    return token;
+  };
 }
 
 module.exports = Utils;
